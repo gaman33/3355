@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "WA Biz AI Translator & Reply",
+  "version": "1.0.0",
+  "description": "WhatsApp Business Web assistant for auto-translation and AI smart replies.",
+  "permissions": ["storage", "activeTab"],
+  "host_permissions": [
+    "https://web.whatsapp.com/*",
+    "https://api.openai.com/*"
+  ],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "options_page": "src/options.html",
+  "content_scripts": [
+    {
+      "matches": ["https://web.whatsapp.com/*"],
+      "js": ["src/core.js", "src/content.js"],
+      "css": ["src/content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "WA Biz AI Assistant",
+    "default_popup": "src/popup.html"
+  }
+}

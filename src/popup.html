@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    body { font-family: Arial, sans-serif; min-width: 260px; padding: 12px; }
+    a { color: #0b57d0; }
+  </style>
+</head>
+<body>
+  <h4>WA AI 客服助手</h4>
+  <p>请先在设置页填写 API Key。</p>
+  <button id="openOptions">打开设置</button>
+  <script>
+    document.getElementById('openOptions').addEventListener('click', () => chrome.runtime.openOptionsPage());
+  </script>
+</body>
+</html>

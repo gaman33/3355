@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WA AI 助手设置</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 900px; margin: 24px auto; padding: 0 12px; }
+    textarea, input { width: 100%; margin-top: 6px; margin-bottom: 16px; padding: 8px; }
+    button { padding: 8px 12px; margin-right: 8px; }
+    .ok { color: #0a7a2f; }
+    .tip { color: #555; font-size: 12px; margin-top: -10px; margin-bottom: 14px; }
+  </style>
+</head>
+<body>
+  <h2>WA AI 助手配置</h2>
+  <label>OpenAI API Key</label>
+  <input id="apiKey" type="password" placeholder="sk-..." />
+
+  <label>模型名称（建议 gpt-5）</label>
+  <input id="model" type="text" placeholder="gpt-5" />
+  <label><input id="useAutoLatestModel" type="checkbox" /> 自动选择你账号可用的最高优先模型</label>
+
+  <label>AI 客服语气（用于智能回复）</label>
+  <textarea id="businessTone" rows="3"></textarea>
+
+  <label>上下文最大字符数（建议 120000~240000）</label>
+  <input id="contextMaxChars" type="number" min="30000" step="1000" />
+
+  <label>知识库（JSON数组，示例：[ {"title":"退货政策","content":"签收后7天内可退"} ]）</label>
+  <textarea id="knowledgeBase" rows="8" placeholder='[{"title":"运费规则","content":"满100美金免运费"}]'></textarea>
+  <div class="tip">建议将产品参数、报价策略、物流时效、售后政策整理为知识条目。回复会优先引用这些信息。</div>
+
+  <label><input id="autoTranslateIncoming" type="checkbox" /> 自动翻译客户来信为中文</label><br>
+  <label><input id="autoSuggestReply" type="checkbox" /> 自动生成AI回复建议</label><br><br>
+
+  <button id="save">保存</button>
+  <button id="checkModel">测试可用最新模型</button>
+  <div id="status" class="ok"></div>
+
+  <script src="options.js"></script>
+</body>
+</html>
